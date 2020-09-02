@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import matplotlib.pyplot as plt
 from qiskit import QuantumRegister, QuantumCircuit, Aer, execute
 
 
@@ -15,5 +16,6 @@ statevector = result.get_statevector()
 print(statevector)
 
 
-print(circuit.draw())
+circuit.draw(output="mpl")
+plt.show()
 
