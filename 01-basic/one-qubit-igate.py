@@ -2,19 +2,18 @@
 from qiskit import QuantumRegister, QuantumCircuit, Aer, execute
 
 
-q = QuantumRegister(1)
-circuit = QuantumCircuit(q)
-circuit.i(q[0])
+reg = QuantumRegister(1)
+
+
+circuit = QuantumCircuit(reg)
+circuit.i(reg[0])
 
 
 simulator = Aer.get_backend("statevector_simulator")
-job = execute(circuit, simulator)
+state_vector = execute(circuit, simulator).result().get_statevector()
 
 
-result = job.result()
-statevector = result.get_statevector()
-print(statevector)
-
-
+print()
+print(state_vector)
 print(circuit.draw())
 
