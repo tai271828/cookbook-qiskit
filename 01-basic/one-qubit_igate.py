@@ -1,16 +1,16 @@
 #!/usr/bin/env python
-from qiskit import QuantumRegister, QuantumCircuit, Aer, execute
+import qiskit
 
 
-reg = QuantumRegister(1)
+reg = qiskit.QuantumRegister(1)
 
 
-circuit = QuantumCircuit(reg)
+circuit = qiskit.QuantumCircuit(reg)
 circuit.i(reg[0])
 
 
-simulator = Aer.get_backend("statevector_simulator")
-state_vector = execute(circuit, simulator).result().get_statevector()
+simulator = qiskit.Aer.get_backend("statevector_simulator")
+state_vector = qiskit.execute(circuit, simulator).result().get_statevector()
 
 
 print()
